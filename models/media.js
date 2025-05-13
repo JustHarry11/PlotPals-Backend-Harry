@@ -5,7 +5,7 @@ const mediaSchema = new mongoose.Schema({
     description: {type: String, required: [true, 'Please provide the description']},
     imageUrl: {type: String, required: [true, 'Please provide an image']},
     rating: {type: Number, required: [true, 'Please provide a rating']},
-    genres: [{type: Schema.Types.ObjectId, ref: 'Genres', required: [true, 'Please select atleast 1 genre']}],
+    genres: [{type: Schema.Types.ObjectId, ref: 'Genre', required: [true, 'Please select atleast 1 genre']}],
     episodeNum: {type: Number, required: [true, 'Please provide a number of episodes']},
     status: {type: String, required: [true, 'Please provide the status']},
     length: {type: Number, required: [true, 'Please provide the length in minutes']},
