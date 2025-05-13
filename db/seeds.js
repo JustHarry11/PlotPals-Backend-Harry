@@ -16,18 +16,43 @@ async function seedData() {
         await mongoose.connect(process.env.MONGODB_URI)
         console.log('DB Established')
 
+        // Clearing data
         const deleteUsers = await User.deleteMany()
-        console.log(`${deleteUsers.deletedCount} users have been deleted`);
-        
         const deleteMedia = await Media.deleteMany()
-        console.log(`${deleteMedia.deletedCount} media have been deleted`);
+        const deleteGenre = await Genre.deleteMany()
+        console.log(`${deleteUsers.deletedCount} users, ${deleteMedia.deletedCount} media, and ${deleteGenre.deletedCount} genres have been deleted`);
+        
 
+        // Creating data
         const users = await User.create(userData)
-        console.log(`${users.length} users have been added to the database`);
-        
         const genres = await Genre.create(genreData)
-        console.log(`${genres.length} genres have been added to the database`);
+        console.log(`${users.length} users and ${genres.length} genres have been added to the database`);
         
+        const genreObjects = {}
+        genres.forEach(gen => {
+            genreObjects[gen.name.toLowerCase()] = gen._id
+        })
+
+        const mediaAdditions = mediaData.map((media) => {
+            media.owner = users[Math.floor(Math.random() * users.length)]._id
+            const fixGenres = media.genres.map((name) => {
+                return genreObjects[name.toLowerCase()]
+            })
+            media.genres = fixGenres
+
+            const favouritesNumber = Math.floor(Math.random() * 20) + 1
+            let favourites = []
+            for (let i = 0; i < favouritesNumber; i++) {
+                const seededUser = users[Math.floor(Math.random() * users.length)]
+                favourites.push(seededUser._id)
+            }
+            media.favourites = favourites
+            
+            return media
+        })
+        
+        const addMedia = await Media.create(mediaAdditions)
+        console.log(`${addMedia.length} medias have been added to the database`);
         
         
         await mongoose.connection.close()
