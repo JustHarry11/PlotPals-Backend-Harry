@@ -6,6 +6,7 @@ import cors from 'cors'
 
 import authRouter from './controllers/auth.js'
 import mediaRouter from './controllers/medias.js'
+import favouriteRouter from './controllers/favourite.js'
 
 const app = express()
 const port = process.env.PORT
@@ -16,6 +17,7 @@ app.use(morgan('dev'))
 
 app.use('/api', authRouter)
 app.use('/api', mediaRouter)
+app.use('/api', favouriteRouter)
 
 app.use('/{*any}', (req, res) => {
     return res.status(404).json({ message: 'Route not found' })
