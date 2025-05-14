@@ -1,5 +1,5 @@
 import express from 'express'
-import User from '../models/user'
+import User from '../models/user.js'
 import { Unauthorized, UnprocessableEntity } from '../utils/errors.js'
 import errorHandler from '../middleware/errorHandler.js'
 import bcrypt from 'bcryptjs'
@@ -55,3 +55,5 @@ router.post('/login', async (req, res) => {
         errorHandler(error, res)
     }
 })
+
+export default router
