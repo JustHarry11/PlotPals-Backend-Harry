@@ -6,6 +6,7 @@ import cors from 'cors'
 
 import authRouter from './controllers/auth.js'
 import mediaRouter from './controllers/medias.js'
+import favouriteRouter from './controllers/favourite.js'
 import genresRouter from './controllers/genres.js'
 
 const app = express()
@@ -17,6 +18,7 @@ app.use(morgan('dev'))
 
 app.use('/api', authRouter)
 app.use('/api', mediaRouter)
+app.use('/api', favouriteRouter)
 app.use('/api', genresRouter)
 
 app.use('/{*any}', (req, res) => {
