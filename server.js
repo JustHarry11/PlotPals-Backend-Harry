@@ -5,6 +5,7 @@ import 'dotenv/config'
 import cors from 'cors'
 
 import authRouter from './controllers/auth.js'
+import mediaRouter from './controllers/medias.js'
 
 const app = express()
 const port = process.env.PORT
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 app.use('/api', authRouter)
+app.use('/api', mediaRouter)
 
 app.use('/{*any}', (req, res) => {
     return res.status(404).json({ message: 'Route not found' })
