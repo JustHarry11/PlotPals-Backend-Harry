@@ -4,7 +4,7 @@ import morgan from 'morgan'
 import 'dotenv/config'
 import cors from 'cors'
 
-
+import authRouter from './controllers/auth.js'
 
 const app = express()
 const port = process.env.PORT
@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
-
+app.use('/api', authRouter)
 
 app.use('/{*any}', (req, res) => {
     return res.status(404).json({ message: 'Route not found' })
