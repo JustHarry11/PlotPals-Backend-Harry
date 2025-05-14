@@ -3,6 +3,7 @@ import Media from "../models/media.js";
 import errorHandler from "../middleware/errorHandler.js";
 //import isSignedIn from ""
 import { NotFound, Forbidden } from "../utils/errors.js";
+import isSignedIn from "../middleware/isSignedIn.js";
 
 const router = express.Router()
 
@@ -17,7 +18,7 @@ router.get('/medias', async (req, res ) => {
 })
 
 // * Create
-router.post('/medias', async (req, res) => {
+router.post('/medias', isSignedIn, async (req, res) => {
     try {
         req.body.owner = req.user._id
         const media = await Media.create(req.body)
@@ -40,7 +41,7 @@ router.get('/medias/:mediaId', async (req, res) => {
 })
 
 // * Update
-router.put('/medias/:mediaId', async (req, res) => {
+router.put('/medias/:mediaId', isSignedIn, async (req, res) => {
     try {
         const { mediaId } = req.params
         const media = await Media.findById(mediaId)
@@ -61,7 +62,7 @@ router.put('/medias/:mediaId', async (req, res) => {
 })
 
 // * Delete
-router.delete('/medias/:mediaId', async (req, res) => {
+router.delete('/medias/:mediaId', isSignedIn, async (req, res) => {
     try {
         const { mediaId } = req.params
         const media = await Media.findById(mediaId)
