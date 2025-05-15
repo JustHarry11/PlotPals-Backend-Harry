@@ -2,7 +2,7 @@ export default function errorHandler(err, res) {
     let { name, status, field, message, code } = err
 
     if( name === "ValidationError" ){
-        const fields = Object.keys(err.error)
+        const fields = Object.keys(err.errors)
         const responseBody = {}
         fields.forEach(field => {
             responseBody[field] = err.errors[field].message
@@ -17,6 +17,10 @@ export default function errorHandler(err, res) {
 
     if ( name === "JsonWebTokenError" ) {
         return res.status(401).json({ message: 'Unauthorized'})
+    }
+
+    if (name === 'CastError' && kind === 'ObjectId') {
+        return res.status(422).json({ message: 'Invalid ObjectId'})
     }
 
     return res.status(status).json({ [field]: message })
