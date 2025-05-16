@@ -4,6 +4,7 @@ import errorHandler from "../middleware/errorHandler.js";
 //import isSignedIn from ""
 import { NotFound, Forbidden } from "../utils/errors.js";
 import isSignedIn from "../middleware/isSignedIn.js";
+import parser from "../middleware/fileParser.js";
 
 const router = express.Router()
 
@@ -18,8 +19,11 @@ router.get('/medias', async (req, res ) => {
 })
 
 // * Create
-router.post('/medias', isSignedIn, async (req, res) => {
+router.post('/medias', parser.single('imageUrl'), isSignedIn, async (req, res) => {
     try {
+        if (req.file) {
+            req.body.imageUrl = req.file.path
+        }
         req.body.owner = req.user._id
         const media = await Media.create(req.body)
         return res.status(201).json(media)
@@ -32,7 +36,7 @@ router.post('/medias', isSignedIn, async (req, res) => {
 router.get('/medias/:mediaId', async (req, res) => {
     try {
         const { mediaId } = req.params
-        const media = await Media.findById(mediaId)
+        const media = await Media.findById(mediaId).populate('genres')
         if (!media) throw new NotFound('Media not found')
         return res.json(media)
     } catch (error) {
@@ -41,8 +45,11 @@ router.get('/medias/:mediaId', async (req, res) => {
 })
 
 // * Update
-router.put('/medias/:mediaId', isSignedIn, async (req, res) => {
+router.put('/medias/:mediaId', parser.single('imageUrl'), isSignedIn, async (req, res) => {
     try {
+        if (req.file) {
+            req.body.imageUrl = req.file.path
+        }
         const { mediaId } = req.params
         const media = await Media.findById(mediaId)
 
