@@ -99,7 +99,7 @@ router.post('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
 
         await media.save()
 
-        return res.redirect(`/media/${media._id}`)
+        return res.json(media)
     } catch (error) {
         errorHandler(error, res)
     }
@@ -118,7 +118,7 @@ router.delete('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
 
         await media.save()
 
-        return res.redirect(`/media/${media._id}`)
+        return res.json(media)
     } catch (error) {
         errorHandler(error, res)
     }
