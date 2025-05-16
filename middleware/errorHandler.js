@@ -1,4 +1,5 @@
 export default function errorHandler(err, res) {
+    console.log(err)
     let { name, status, field, message, code, kind } = err
 
     if( name === "ValidationError" ){
