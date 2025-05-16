@@ -86,4 +86,42 @@ router.delete('/medias/:mediaId', isSignedIn, async (req, res) => {
     }
 })
 
+// * Add Favourite
+router.post('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
+    try {
+        const { mediaId } = req.params
+        const media = await Media.findById(mediaId)
+        const favourited = media.favourites.find(userId => userId.equals(req.user._id))
+
+        if (!favourited) {
+            media.favourites.push(req.user._id)
+        }
+
+        await media.save()
+
+        return res.redirect(`/media/${media._id}`)
+    } catch (error) {
+        errorHandler(error, res)
+    }
+})
+
+// * Remove Favourite
+router.delete('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
+    try {
+        const { mediaId } = req.params
+        const media = await Media.findById(mediaId)
+        const favourited = media.favourites.find(userId => userId.equals(req.user._id))
+
+        if (favourited) {
+            media.favourites.pull(req.user._id)
+        }
+
+        await media.save()
+
+        return res.redirect(`/media/${media._id}`)
+    } catch (error) {
+        errorHandler(error, res)
+    }
+})
+
 export default router
