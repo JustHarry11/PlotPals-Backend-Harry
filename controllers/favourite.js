@@ -20,8 +20,6 @@ router.get('/favourites', isSignedIn, async (req, res) => {
     try {
         const yourFavouriteMedia = await Media.find({ favourites: req.user._id})
 
-        if(yourFavouriteMedia.length === 0) throw new NotFound('You Have No Favourites')
-
         return res.json(yourFavouriteMedia)
     } catch (error) {
         errorHandler(error, res)
