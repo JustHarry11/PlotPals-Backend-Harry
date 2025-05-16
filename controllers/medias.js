@@ -119,6 +119,7 @@ router.delete('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
         await media.save()
 
         return res.json(media)
+
     } catch (error) {
         errorHandler(error, res)
     }
