@@ -36,7 +36,7 @@ router.post('/medias', parser.single('imageUrl'), isSignedIn, async (req, res) =
 router.get('/medias/:mediaId', async (req, res) => {
     try {
         const { mediaId } = req.params
-        const media = await Media.findById(mediaId)
+        const media = await Media.findById(mediaId).populate('genres')
         if (!media) throw new NotFound('Media not found')
         return res.json(media)
     } catch (error) {
