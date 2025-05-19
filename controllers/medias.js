@@ -11,7 +11,7 @@ const router = express.Router()
 // * Index
 router.get('/medias', async (req, res ) => {
     try {
-        const medias = await Media.find()
+        const medias = await Media.find().populate('genres')
         return res.json(medias)
     } catch (error) {
         errorHandler(error, res)
