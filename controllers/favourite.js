@@ -9,7 +9,7 @@ const router = express.Router()
 // * Home
 router.get('/home', async (req, res) => {
     try {
-        const favouriteMedia = await Media.find({ favourites: { $ne: [] }}).sort({ favourites: -1 })
+        const favouriteMedia = await Media.find({ favourites: { $ne: [] }}).sort({ favourites: -1 }).populate('genres', 'name')
         return res.json(favouriteMedia)
     } catch (error) {
         errorHandler(error, res)
