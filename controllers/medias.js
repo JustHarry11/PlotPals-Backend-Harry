@@ -99,7 +99,9 @@ router.post('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
 
         await media.save()
 
-        return res.json(media)
+        const updatedMedia = await Media.findById(mediaId).populate('genres')
+
+        return res.json(updatedMedia)
     } catch (error) {
         errorHandler(error, res)
     }
@@ -118,7 +120,9 @@ router.delete('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
 
         await media.save()
 
-        return res.json(media)
+        const updatedMedia = await Media.findById(mediaId).populate('genres')
+
+        return res.json(updatedMedia)
 
     } catch (error) {
         errorHandler(error, res)
