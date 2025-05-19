@@ -20,7 +20,7 @@ router.get('/genres', async (req, res) => {
 
 router.get('/genres/:genreId', async (req, res) => {
     try {      
-        const genre = await Genre.findById(req.params.genreId).populate('media')
+        const genre = await Genre.findById(req.params.genreId).populate({path: 'media', populate: {path: 'genres'}})
         
         if (!genre) throw new NotFound('Genre not found')
 
