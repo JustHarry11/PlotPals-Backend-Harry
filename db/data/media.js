@@ -178,5 +178,155 @@ export default [
     length: 60,
     type: "tvshow",
     releaseDate: 2019
+  },
+    {
+    title: "Peaky Blinders",
+    description: "A gangster family epic set in 1900s Birmingham, England.",
+    genres: ["Crime", "Drama"],
+    episodeNum: 36,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2013,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661818/59606527-6d05-4e3b-bbe7-1f28bf43e74a.png'
+  },
+  {
+    title: "The Dark Knight",
+    description: "Batman faces the Joker, a criminal mastermind bent on chaos.",
+    genres: ["Action", "Crime", "Drama"],
+    rating: 9.0,
+    length: 152,
+    type: "movie",
+    releaseDate: 2008,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661852/9539e59f-67e3-42ff-9c54-002dd4b0968c.png'
+  },
+  {
+    title: "Brooklyn Nine-Nine",
+    description: "Detectives at a Brooklyn precinct juggle cases and comedy.",
+    genres: ["Comedy", "Crime"],
+    episodeNum: 153,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2013,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661877/120231be-f25e-4efb-be67-87d75331cefe.png'
+  },
+  {
+    title: "Parasite",
+    description: "A poor family schemes to infiltrate a wealthy household.",
+    genres: ["Drama", "Thriller"],
+    rating: 8.6,
+    length: 132,
+    type: "movie",
+    releaseDate: 2019,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661918/69e430ef-ebcd-4695-821e-de9b2f596859.png'
+  },
+  {
+    title: "The Boys",
+    description: "A group of vigilantes fights corrupt superheroes.",
+    genres: ["Action", "Drama", "Sci-Fi"],
+    episodeNum: 24,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2019,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661947/1dfda65c-08e0-48fb-9faa-31f9d932116a.png'
+  },
+  {
+    title: "The Social Network",
+    description: "The story of Facebook’s creation and its legal battles.",
+    genres: ["Drama", "Documentary"],
+    rating: 7.7,
+    length: 120,
+    type: "movie",
+    releaseDate: 2010,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747661979/87976e7a-2680-4767-acc4-da496542b75d.png'
+  },
+  {
+    title: "Rick and Morty",
+    description: "A genius scientist and his grandson go on bizarre adventures.",
+    genres: ["Animation", "Comedy", "Sci-Fi"],
+    episodeNum: 61,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2013,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662051/1e9ce9c1-9788-4249-b927-2e0238692212.png'
+  },
+  {
+    title: "Gladiator",
+    description: "A Roman general seeks vengeance as a gladiator.",
+    genres: ["Action", "Drama"],
+    rating: 8.5,
+    length: 155,
+    type: "movie",
+    releaseDate: 2000,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662037/05be9479-cee5-4f59-ac9a-be08d210b0e9.png'
+  },
+  {
+    title: "Sherlock",
+    description: "Modern retelling of Sherlock Holmes solving crimes in London.",
+    genres: ["Crime", "Drama", "Mystery"],
+    episodeNum: 13,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2010,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662086/1c5becde-84ab-434b-928f-2e8164fe1e64.png'
+  },
+  {
+    title: "Pulp Fiction",
+    description: "Interwoven crime stories unfold in gritty Los Angeles.",
+    genres: ["Crime", "Drama"],
+    rating: 8.9,
+    length: 154,
+    type: "movie",
+    releaseDate: 1994,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662114/1d2ca803-b05d-457a-8bfd-bd1714272280.png'
+  },
+  {
+    title: "Severance",
+    description: "Office workers disconnect memories between work and home lives.",
+    genres: ["Mystery", "Drama", "Sci-Fi"],
+    episodeNum: 9,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2022,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662139/5736faf6-044f-485a-afdf-b16a1b0e0546.png'
+  },
+  {
+    title: "La La Land",
+    description: "A jazz musician and an actress fall in love while pursuing careers.",
+    genres: ["Drama", "Romance", "Musical"],
+    rating: 8.0,
+    length: 128,
+    type: "movie",
+    releaseDate: 2016,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662161/9fd65d67-9b8e-4959-8542-d587e5336de4.png'
+  },
+  {
+    title: "How I Met Your Mother",
+    description: "A man recounts to his kids how he met their mother.",
+    genres: ["Comedy", "Romance"],
+    episodeNum: 208,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2005,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662204/c3fc76f9-186d-44c7-ac0e-147c525b29f3.png'
+  },
+  {
+    title: "Avatar",
+    description: "A paraplegic marine becomes part of a native alien tribe.",
+    genres: ["Action", "Adventure", "Sci-Fi"],
+    rating: 7.9,
+    length: 162,
+    type: "movie",
+    releaseDate: 2009,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662214/7e727e30-ca16-4cb0-b12f-b2dd0737ec47.png'
+  },
+  {
+    title: "House of the Dragon",
+    description: "The Targaryen civil war begins centuries before Game of Thrones.",
+    genres: ["Drama", "Fantasy"],
+    episodeNum: 10,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2022,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662225/0645b27a-2e74-44d3-ad51-4b59c100d3c8.png'
   }
 ]

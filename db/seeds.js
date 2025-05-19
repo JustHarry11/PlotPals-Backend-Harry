@@ -35,16 +35,19 @@ async function seedData() {
 
         const mediaAdditions = mediaData.map((media) => {
             media.owner = users[Math.floor(Math.random() * users.length)]._id
+            
             const fixGenres = media.genres.map((name) => {
                 return genreObjects[name.toLowerCase()]
             })
             media.genres = fixGenres
 
-            const favouritesNumber = Math.floor(Math.random() * 20) + 1
+            const favouritesNumber = Math.floor(Math.random() * 40) + 1
             let favourites = []
             for (let i = 0; i < favouritesNumber; i++) {
                 const seededUser = users[Math.floor(Math.random() * users.length)]
-                favourites.push(seededUser._id)
+                if (!favourites.includes(seededUser._id)) {
+                    favourites.push(seededUser._id)
+                }
             }
             media.favourites = favourites
             
