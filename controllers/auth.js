@@ -13,6 +13,8 @@ router.post('/register', async (req, res) => {
             throw new UnprocessableEntity('Passwords do not match', 'password')
         }
 
+        req.body.username = req.body.username.toLowerCase()
+
         req.body.password = bcrypt.hashSync(req.body.password, 12)
 
         const user = await User.create(req.body)
