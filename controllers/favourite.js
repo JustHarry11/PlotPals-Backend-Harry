@@ -9,7 +9,7 @@ const router = express.Router()
 // * Home
 router.get('/home', async (req, res) => {
     try {
-        const favouriteMedia = await Media.find({ favourites: { $ne: [] }}).sort({ favourites: -1 }).populate('genres', 'name')
+        const favouriteMedia = await Media.find({ favourites: { $ne: [] }}).sort({ favourites: -1 }).populate('genres')
         return res.json(favouriteMedia)
     } catch (error) {
         errorHandler(error, res)
@@ -18,7 +18,7 @@ router.get('/home', async (req, res) => {
 
 router.get('/favourites', isSignedIn, async (req, res) => {
     try {
-        const yourFavouriteMedia = await Media.find({ favourites: req.user._id})
+        const yourFavouriteMedia = await Media.find({ favourites: req.user._id}).populate('genres')
 
         return res.json(yourFavouriteMedia)
     } catch (error) {
