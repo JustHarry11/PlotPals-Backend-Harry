@@ -28,9 +28,11 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const { email, password } = req.body
-
-        const userToLogin = await User.findOne({ email: email })
+        const { password } = req.body
+        const identity = req.body.identity.toLowerCase()
+        
+        const userToLogin = await User.findOne( identity.includes('@') ? { email: identity} : { username: identity });
+        
 
         if (!userToLogin) {
             console.log("User not found")
