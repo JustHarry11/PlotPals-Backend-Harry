@@ -54,13 +54,6 @@ const mediaSchema = new mongoose.Schema({
         enum: {
             values: ['on-going', 'completed', 'cancelled'],
             message: 'Status must be on-going, completed, or cancelled'
-        },
-        validate: {
-            validator: function(value) {
-                if (this.type === 'movie') return value == null || value === ''
-                return ['on-going', 'completed', 'cancelled'].includes(value)
-            },
-            message: 'test'
         }
     },
     releaseDate: {type: Number, required: [true, 'Please provide the release date']},
