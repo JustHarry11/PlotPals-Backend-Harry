@@ -1,7 +1,6 @@
 import express from "express";
 import Media from "../models/media.js";
 import errorHandler from "../middleware/errorHandler.js";
-//import isSignedIn from ""
 import { NotFound, Forbidden } from "../utils/errors.js";
 import isSignedIn from "../middleware/isSignedIn.js";
 import parser from "../middleware/fileParser.js";
@@ -59,7 +58,33 @@ router.put('/medias/:mediaId', parser.single('imageUrl'), isSignedIn, async (req
         // ! 403 if user not owner of media
         if(!media.owner.equals(req.user._id)) throw new Forbidden()
 
-        const updatedMedia = await Media.findByIdAndUpdate(mediaId, req.body, { new: true })
+        const fieldsChecker = ['rating', 'length', 'episodeNum', 'status']
+
+        fieldsChecker.forEach(field => {
+            if (req.body[field] === '') {
+                delete req.body[field]
+            }
+        })
+
+        if (req.body.type === 'movie') {
+            if (!req.body.rating) {
+                return res.status(400).json({message: 'Please add rating for the movie'})
+            }
+            if (!req.body.length) {
+                return res.status(400).json({message: 'Please add the movie length in minutes'})
+            }
+        }
+
+        if (req.body.type === 'tvshow') {
+            if (!req.body.status || !['on-going', 'completed', 'cancelled'].includes(req.body.status)) {
+                return res.status(400).json({message: 'Status is required and must be on-going, completed, or cancelled for TV Shows'})
+            }
+            if (!req.body.episodeNum) {
+                return res.status(400).json({message: 'Episode number is required for TV Shows'})
+            }
+        }
+
+        const updatedMedia = await Media.findByIdAndUpdate(mediaId, req.body, { new: true, runValidators: true, context: 'query' })
 
         return res.json(updatedMedia)
 
