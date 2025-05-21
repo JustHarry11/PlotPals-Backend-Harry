@@ -179,7 +179,7 @@ export default [
     type: "tvshow",
     releaseDate: 2019
   },
-    {
+  {
     title: "Peaky Blinders",
     description: "A gangster family epic set in 1900s Birmingham, England.",
     genres: ["Crime", "Drama"],
@@ -328,5 +328,316 @@ export default [
     type: "tvshow",
     releaseDate: 2022,
     imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747662225/0645b27a-2e74-44d3-ad51-4b59c100d3c8.png'
+  },
+  {
+    title: "Arrival",
+    description: "A linguist is recruited to communicate with aliens who have landed on Earth.",
+    imageUrl: "",
+    rating: 8.0,
+    genres: ["Sci-Fi", "Drama", "Mystery"],
+    episodeNum: 1,
+    status: "completed",
+    length: 116,
+    type: "movie",
+    releaseDate: 2016
+  },
+  {
+    title: "Knives Out",
+    description: "A detective investigates the death of a wealthy patriarch in a tangled web of lies.",
+    imageUrl: "",
+    rating: 7.9,
+    genres: ["Mystery", "Crime", "Comedy"],
+    episodeNum: 1,
+    status: "completed",
+    length: 130,
+    type: "movie",
+    releaseDate: 2019
+  },
+  {
+    title: "Whiplash",
+    description: "A young drummer pushes himself to the limit under a ruthless music instructor.",
+    imageUrl: "",
+    rating: 8.5,
+    genres: ["Drama", "Musical"],
+    episodeNum: 1,
+    status: "completed",
+    length: 106,
+    type: "movie",
+    releaseDate: 2014
+  },
+  {
+    title: "1917",
+    description: "Two British soldiers must deliver a message across enemy lines to stop an ambush.",
+    imageUrl: "",
+    rating: 8.3,
+    genres: ["War", "Drama", "Historical"],
+    episodeNum: 1,
+    status: "completed",
+    length: 119,
+    type: "movie",
+    releaseDate: 2019
+  },
+  {
+    title: "The Grand Budapest Hotel",
+    description: "A concierge and his protégé become entangled in the theft of a priceless painting.",
+    imageUrl: "",
+    rating: 8.1,
+    genres: ["Comedy", "Adventure", "Drama"],
+    episodeNum: 1,
+    status: "completed",
+    length: 99,
+    type: "movie",
+    releaseDate: 2014
+  },
+  {
+    title: "Her",
+    description: "A lonely writer falls in love with an artificial intelligence operating system.",
+    imageUrl: "",
+    rating: 8.0,
+    genres: ["Romance", "Sci-Fi", "Drama"],
+    episodeNum: 1,
+    status: "completed",
+    length: 126,
+    type: "movie",
+    releaseDate: 2013
+  },
+  {
+    title: "The Bear",
+    description: "A young chef returns to run his family's sandwich shop in Chicago.",
+    imageUrl: "",
+    genres: ["Drama"],
+    episodeNum: 18,
+    status: "on-going",
+    length: 30,
+    type: "tvshow",
+    releaseDate: 2022
+  },
+  {
+    title: "The Leftovers",
+    description: "After 2% of the world's population vanishes, those left behind struggle to move on.",
+    imageUrl: "",
+    genres: ["Drama", "Mystery", "Fantasy"],
+    episodeNum: 28,
+    status: "completed",
+    length: 60,
+    type: "tvshow",
+    releaseDate: 2014
+  },
+  {
+    title: "Lady Bird",
+    description: "A teenager navigates family, love, and identity in her final year of high school.",
+    imageUrl: "",
+    rating: 7.9,
+    genres: ["Drama", "Comedy"],
+    episodeNum: 1,
+    status: "completed",
+    length: 94,
+    type: "movie",
+    releaseDate: 2017
+  },
+  {
+    title: "Prisoners",
+    description: "A father takes matters into his own hands when his daughter goes missing.",
+    imageUrl: "",
+    rating: 8.1,
+    genres: ["Crime", "Drama", "Thriller"],
+    episodeNum: 1,
+    status: "completed",
+    length: 153,
+    type: "movie",
+    releaseDate: 2013
+  },
+  {
+    title: "Barry",
+    description: "A hitman discovers a passion for acting while juggling his criminal life.",
+    imageUrl: "",
+    genres: ["Comedy", "Crime", "Drama"],
+    episodeNum: 32,
+    status: "completed",
+    length: 30,
+    type: "tvshow",
+    releaseDate: 2018
+  },
+  {
+    title: "Inside Out",
+    description: "Inside a young girl's mind, five emotions guide her through life changes.",
+    imageUrl: "",
+    rating: 8.2,
+    genres: ["Animation", "Comedy", "Family"],
+    episodeNum: 1,
+    status: "completed",
+    length: 95,
+    type: "movie",
+    releaseDate: 2015
+  },
+  {
+    title: "Fleabag",
+    description: "A dry-witted woman navigates modern life and love in London.",
+    imageUrl: "",
+    genres: ["Comedy", "Drama"],
+    episodeNum: 12,
+    status: "completed",
+    length: 27,
+    type: "tvshow",
+    releaseDate: 2016
+  },
+  {
+    title: "Sound of Metal",
+    description: "A drummer's life changes when he begins to lose his hearing.",
+    imageUrl: "",
+    rating: 7.8,
+    genres: ["Drama", "Musical"],
+    episodeNum: 1,
+    status: "completed",
+    length: 120,
+    type: "movie",
+    releaseDate: 2019
+  },
+  {
+    title: "Ex Machina",
+    description: "A programmer is invited to test a highly advanced humanoid robot.",
+    imageUrl: "",
+    rating: 7.7,
+    genres: ["Sci-Fi", "Thriller"],
+    episodeNum: 1,
+    status: "completed",
+    length: 108,
+    type: "movie",
+    releaseDate: 2014
+  },
+  {
+    title: "The Suicide Squad",
+    description: "A group of imprisoned supervillains is sent on a dangerous mission by the government.",
+    rating: 7.3,
+    genres: ["Superhero", "Action", "Adventure"],
+    length: 132,
+    type: "movie",
+    releaseDate: 2021
+  },
+  {
+    title: "Yellowstone",
+    description: "A powerful ranching family struggles to maintain control over their land in modern-day Montana.",
+    genres: ["Western", "Drama"],
+    episodeNum: 49,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2018
+  },
+  {
+    title: "Django Unchained",
+    description: "A freed slave teams up with a bounty hunter to rescue his wife from a brutal plantation owner.",
+    rating: 8.4,
+    genres: ["Western", "Drama", "Adventure"],
+    length: 165,
+    type: "movie",
+    releaseDate: 2012
+  },
+  {
+    title: "The Walking Dead",
+    description: "Survivors navigate a post-apocalyptic world overrun by zombies and the dangers of other humans.",
+    genres: ["Horror", "Drama", "Thriller"],
+    episodeNum: 177,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2010
+  },
+  {
+    title: "Family Guy",
+    description: "An animated comedy about the dysfunctional Griffin family and their bizarre adventures.",
+    genres: ["Family", "Comedy", "Animation"],
+    episodeNum: 363,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 1999
+  },
+  {
+    title: "The Great British Bake Off",
+    description: "Amateur bakers compete in a series of challenges to be crowned the best baker in Britain.",
+    genres: ["Reality-TV", "Family"],
+    episodeNum: 100,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2010
+  },
+  {
+    title: "War Horse",
+    description: "A young man enlists to serve in World War I after his beloved horse is sold to the cavalry.",
+    rating: 7.2,
+    genres: ["War", "Drama", "Adventure"],
+    length: 146,
+    type: "movie",
+    releaseDate: 2011
+  },
+  {
+    title: "The Exorcist",
+    description: "A mother seeks the help of two priests when her daughter becomes possessed by a demonic entity.",
+    rating: 8.0,
+    genres: ["Horror"],
+    length: 122,
+    type: "movie",
+    releaseDate: 1973
+  },
+  {
+    title: "Love Island",
+    description: "Singles live in a villa under constant video surveillance to find love and win a cash prize.",
+    genres: ["Reality-TV"],
+    episodeNum: 80,
+    status: "on-going",
+    type: "tvshow",
+    releaseDate: 2015
+  },
+  {
+    title: "Coco",
+    description: "A young boy journeys into the Land of the Dead to discover his family’s history and passion for music.",
+    rating: 8.4,
+    genres: ["Family", "Adventure", "Animation"],
+    length: 105,
+    type: "movie",
+    releaseDate: 2017
+  },
+  {
+    title: "The Magnificent Seven",
+    description: "Seven gunslingers are hired to protect a town from a ruthless industrialist and his henchmen.",
+    rating: 7.8,
+    genres: ["Western", "Action", "Adventure"],
+    length: 132,
+    type: "movie",
+    releaseDate: 2016
+  },
+  {
+    title: "Band of Brothers",
+    description: "The story of Easy Company, a unit of the 101st Airborne, during World War II.",
+    genres: ["War", "Drama", "Historical"],
+    episodeNum: 10,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2001
+  },
+  {
+    title: "Superman Returns",
+    description: "Superman returns to Earth after years away, facing new threats and reconnecting with old friends.",
+    rating: 6.0,
+    genres: ["Superhero", "Action", "Adventure"],
+    length: 154,
+    type: "movie",
+    releaseDate: 2006
+  },
+  {
+    title: "Shameless",
+    description: "A dysfunctional family deals with their hardships and chaos while living on the South Side of Chicago.",
+    genres: ["Reality-TV", "Drama", "Comedy"],
+    episodeNum: 134,
+    status: "completed",
+    type: "tvshow",
+    releaseDate: 2011
+  },
+  {
+    title: "Jumanji: Welcome to the Jungle",
+    description: "Four teenagers get sucked into a magical video game and must complete dangerous challenges to escape.",
+    rating: 6.9,
+    genres: ["Adventure", "Comedy", "Fantasy"],
+    length: 119,
+    type: "movie",
+    releaseDate: 2017
   }
 ]
