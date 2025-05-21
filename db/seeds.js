@@ -41,7 +41,7 @@ async function seedData() {
             })
             media.genres = fixGenres
 
-            const favouritesNumber = Math.floor(Math.random() * 40) + 1
+            const favouritesNumber = Math.floor(Math.random() * 60) + 1
             let favourites = []
             for (let i = 0; i < favouritesNumber; i++) {
                 const seededUser = users[Math.floor(Math.random() * users.length)]
