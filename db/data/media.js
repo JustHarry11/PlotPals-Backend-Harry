@@ -339,7 +339,8 @@ export default [
     status: "completed",
     length: 116,
     type: "movie",
-    releaseDate: 2016
+    releaseDate: 2016,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819717/9c68df94-907f-4c33-a087-380d9c148d2a.png'
   },
   {
     title: "Knives Out",
@@ -351,7 +352,8 @@ export default [
     status: "completed",
     length: 130,
     type: "movie",
-    releaseDate: 2019
+    releaseDate: 2019,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819733/eb435af6-59ba-4e30-92e3-d837da963b08.png'
   },
   {
     title: "Whiplash",
@@ -363,7 +365,8 @@ export default [
     status: "completed",
     length: 106,
     type: "movie",
-    releaseDate: 2014
+    releaseDate: 2014,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819808/858812ad-ee14-4323-b0e5-2862b02bae04.png'
   },
   {
     title: "1917",
@@ -375,7 +378,8 @@ export default [
     status: "completed",
     length: 119,
     type: "movie",
-    releaseDate: 2019
+    releaseDate: 2019,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819832/46b7523e-3a1a-4e13-ac8e-c9df864e0bff.png'
   },
   {
     title: "The Grand Budapest Hotel",
@@ -387,7 +391,8 @@ export default [
     status: "completed",
     length: 99,
     type: "movie",
-    releaseDate: 2014
+    releaseDate: 2014,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819869/22201e86-367c-4b93-933e-c01ce4050435.png'
   },
   {
     title: "Her",
@@ -399,7 +404,8 @@ export default [
     status: "completed",
     length: 126,
     type: "movie",
-    releaseDate: 2013
+    releaseDate: 2013,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819885/af357b6e-8362-4e10-91ba-0d539a963e6f.png'
   },
   {
     title: "The Bear",
@@ -410,7 +416,8 @@ export default [
     status: "on-going",
     length: 30,
     type: "tvshow",
-    releaseDate: 2022
+    releaseDate: 2022,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819907/e37c6f2e-1c60-48e6-9244-ece4cb309af4.png'
   },
   {
     title: "The Leftovers",
@@ -421,7 +428,8 @@ export default [
     status: "completed",
     length: 60,
     type: "tvshow",
-    releaseDate: 2014
+    releaseDate: 2014,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819943/491a8167-e418-4fd3-b74b-26d568f1ae65.png'
   },
   {
     title: "Lady Bird",
@@ -433,7 +441,8 @@ export default [
     status: "completed",
     length: 94,
     type: "movie",
-    releaseDate: 2017
+    releaseDate: 2017,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819966/8bbca655-bf49-470a-a4ed-a1c243683404.png'
   },
   {
     title: "Prisoners",
@@ -445,7 +454,8 @@ export default [
     status: "completed",
     length: 153,
     type: "movie",
-    releaseDate: 2013
+    releaseDate: 2013,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747819995/bd424304-9e4a-4d44-9054-b5154d02b489.png'
   },
   {
     title: "Barry",
@@ -456,7 +466,8 @@ export default [
     status: "completed",
     length: 30,
     type: "tvshow",
-    releaseDate: 2018
+    releaseDate: 2018,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820014/6f858c9b-5336-4574-874e-5080aa583d7f.png'
   },
   {
     title: "Inside Out",
@@ -468,7 +479,8 @@ export default [
     status: "completed",
     length: 95,
     type: "movie",
-    releaseDate: 2015
+    releaseDate: 2015,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820040/f1c3e424-43b8-4d40-b621-0f6c4558466a.png'
   },
   {
     title: "Fleabag",
@@ -479,7 +491,8 @@ export default [
     status: "completed",
     length: 27,
     type: "tvshow",
-    releaseDate: 2016
+    releaseDate: 2016,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820063/b7eb7e98-8d1c-4c13-82fa-ecd76357749d.png'
   },
   {
     title: "Sound of Metal",
@@ -491,7 +504,8 @@ export default [
     status: "completed",
     length: 120,
     type: "movie",
-    releaseDate: 2019
+    releaseDate: 2019,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820093/8a9ac859-8dcc-4080-987d-fb240ce3efcd.png'
   },
   {
     title: "Ex Machina",
@@ -503,7 +517,8 @@ export default [
     status: "completed",
     length: 108,
     type: "movie",
-    releaseDate: 2014
+    releaseDate: 2014,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820111/75b4d2ea-343c-4cba-985a-f55799372b2f.png'
   },
   {
     title: "The Suicide Squad",
@@ -512,7 +527,8 @@ export default [
     genres: ["Superhero", "Action", "Adventure"],
     length: 132,
     type: "movie",
-    releaseDate: 2021
+    releaseDate: 2021,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820148/8eeeef4a-3cad-43ce-8de7-fde86a2940cf.png'
   },
   {
     title: "Yellowstone",
@@ -521,7 +537,8 @@ export default [
     episodeNum: 49,
     status: "on-going",
     type: "tvshow",
-    releaseDate: 2018
+    releaseDate: 2018,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820162/690e9e5e-a17c-4e4f-8e71-287fc5b3b070.png'
   },
   {
     title: "Django Unchained",
@@ -530,7 +547,8 @@ export default [
     genres: ["Western", "Drama", "Adventure"],
     length: 165,
     type: "movie",
-    releaseDate: 2012
+    releaseDate: 2012,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820188/301ad232-273d-45db-bcd9-2c30dbbe53c6.png'
   },
   {
     title: "The Walking Dead",
@@ -539,7 +557,8 @@ export default [
     episodeNum: 177,
     status: "completed",
     type: "tvshow",
-    releaseDate: 2010
+    releaseDate: 2010,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820207/56add14b-6c0e-43d6-9e7e-1a15ecfd2a05.png'
   },
   {
     title: "Family Guy",
@@ -548,7 +567,8 @@ export default [
     episodeNum: 363,
     status: "on-going",
     type: "tvshow",
-    releaseDate: 1999
+    releaseDate: 1999,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820236/a7b9ca41-cd50-4448-977e-96aeb9b4b3b6.png'
   },
   {
     title: "The Great British Bake Off",
@@ -557,7 +577,8 @@ export default [
     episodeNum: 100,
     status: "on-going",
     type: "tvshow",
-    releaseDate: 2010
+    releaseDate: 2010,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820250/1b0363e6-bfe9-4283-b6e7-df6c062209be.png'
   },
   {
     title: "War Horse",
@@ -566,7 +587,8 @@ export default [
     genres: ["War", "Drama", "Adventure"],
     length: 146,
     type: "movie",
-    releaseDate: 2011
+    releaseDate: 2011,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820370/0f67d488-774e-4874-9d98-2b808ea65043.png'
   },
   {
     title: "The Exorcist",
@@ -575,7 +597,8 @@ export default [
     genres: ["Horror"],
     length: 122,
     type: "movie",
-    releaseDate: 1973
+    releaseDate: 1973,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820287/6872cfda-d8f7-4884-9875-619e07ebbab1.png'
   },
   {
     title: "Love Island",
@@ -584,7 +607,8 @@ export default [
     episodeNum: 80,
     status: "on-going",
     type: "tvshow",
-    releaseDate: 2015
+    releaseDate: 2015,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820278/9ad66a5e-2c29-43a5-84e2-0e9ce1757026.png'
   },
   {
     title: "Coco",
@@ -593,7 +617,8 @@ export default [
     genres: ["Family", "Adventure", "Animation"],
     length: 105,
     type: "movie",
-    releaseDate: 2017
+    releaseDate: 2017,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820296/4a4f8cb5-0e42-40ab-9eb6-941f4d029f75.png'
   },
   {
     title: "The Magnificent Seven",
@@ -602,7 +627,8 @@ export default [
     genres: ["Western", "Action", "Adventure"],
     length: 132,
     type: "movie",
-    releaseDate: 2016
+    releaseDate: 2016,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820402/e56d775c-94fa-48f0-8767-95b7f8265448.png'
   },
   {
     title: "Band of Brothers",
@@ -611,7 +637,8 @@ export default [
     episodeNum: 10,
     status: "completed",
     type: "tvshow",
-    releaseDate: 2001
+    releaseDate: 2001,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820416/b9da082e-6dc7-475f-8cd7-f5c0ab2ab84f.png'
   },
   {
     title: "Superman Returns",
@@ -620,7 +647,8 @@ export default [
     genres: ["Superhero", "Action", "Adventure"],
     length: 154,
     type: "movie",
-    releaseDate: 2006
+    releaseDate: 2006,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820434/e9840e19-145e-4a4d-a229-8fde02456cb7.png'
   },
   {
     title: "Shameless",
@@ -629,7 +657,8 @@ export default [
     episodeNum: 134,
     status: "completed",
     type: "tvshow",
-    releaseDate: 2011
+    releaseDate: 2011,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820455/85820948-ddcc-40f6-8cc5-b4b6b60196ac.png'
   },
   {
     title: "Jumanji: Welcome to the Jungle",
@@ -638,6 +667,7 @@ export default [
     genres: ["Adventure", "Comedy", "Fantasy"],
     length: 119,
     type: "movie",
-    releaseDate: 2017
+    releaseDate: 2017,
+    imageUrl: 'https://res.cloudinary.com/dit5y4gaj/image/upload/v1747820472/c9f4e2d2-d175-4ecb-aa5b-4a2e58dd74cb.png'
   }
 ]
