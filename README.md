@@ -1,14 +1,14 @@
-    Description
+### Description
 
 This is the penultimate project of the bootcamp where we have to build a full stack project. We will build a API using Express and Node and secured with JWT and interact with that API using MongoDB to be able to have full CRUD on the app
 
 
-    Deployment link
+### Deployment link
 
 myplotpals.netlify.app
 
 
-    Getting Started/Code Installation
+### Getting Started/Code Installation
 
 1. Download PlotPals-Frontend-Harry from Github
 2. In the terminal Run NPM I to install all the dependencies
@@ -17,12 +17,12 @@ myplotpals.netlify.app
 5. Follow the link to the Page
 
 
-    Timeframe & Working Team (Solo/Pair/Group)
+### Timeframe & Working Team (Solo/Pair/Group)
 
 Callum and I worked on this project in a pair, we got put into our team on Tuesday 13th May and the deadline for the project is Thursday 22nd May. Callums GitHub repo is https://github.com/Ryziou
 
 
-    Technologies Used
+### Technologies Used
 
 
 Back End:
@@ -59,7 +59,7 @@ Development Tools:
 
 
 
-Brief
+### Brief
 
 
 - The back-end application is built with Express and Node.
@@ -73,7 +73,7 @@ Brief
 - The project is deployed online so that the rest of the world can use it.
 
 
-Planning
+### Planning
 
 
 ![wireframe](image.png)
@@ -87,9 +87,9 @@ He is our entity relationship diagram which allowed us to understand how each of
 
 In Trello we set out what need to be done for this project, we then assigned them so we knew what we needed to do. From there we move and Item which we were working on into our tab so we knew which part the other was working on. Once completed and checked they were moved to the completed tab.
 
-    Backend
+## Backend
 
-Callum:
+### Callum:
 
 Created backend and frontend GitHub repositories.
 Set up the initial Express server structure and added all required dependencies.
@@ -102,16 +102,16 @@ Applied and tested authentication middleware on appropriate routes.
 Updated the Media model with validation rules.
 Extended login functionality to accept either username or email.
 
-Harry:
+### Harry:
 
 Defined the User model.
 Created User controller with login/register functionality.
 Implemented the global errorHandler middleware and error.js utilities.
 Created the Favourites controller to manage user favourite media.
     
-    Frontend
+## Frontend
 
-Callum:
+### Callum:
 
 Set up base file structure for the initial commit to ensure project consistency.
 Created and configured Axios services for Media, Favourites, and Genres.
@@ -120,7 +120,7 @@ Developed the reusable MediaCard component used across multiple pages (Home, Ind
 Styled Media components such as (Home, Index, Create, Update, MediaCard)and the User Favourites component using CSS.
 Created footer to display credentials
 
-Harry:
+### Harry:
 
 Created and implemented Login/Register forms and authentication services.
 Developed and styled the Navigation Bar.
@@ -133,31 +133,217 @@ Implemented functionality to favourite/unfavourite a media item.
 Styled the MediaShow component.
 
 
+## Build/Code Process
 
 
-Build/Code Process
+### Adding/Removing favourites using the Back-End
 
-Instructions
+When I began adding the function which allowed the user to favourite a media object I initially thought of adding it to the front end , using a button which would toggle if the content was liked or not. I couldn't figure out how to get it to work and I soon realised that I needed to add a controller in the backend. SO I added a Post and Delete to the bottom of the media controller as you will only be able to favourite and unfavourite when you are on the specific media page.
 
-The Build/Code Process will be the longest section of your ReadMe and will be most insightful to the engineers that review them. This is where you will discuss the steps you took to code the project.
+```js
+// * Add Favourite
+router.post('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
+    try {
+        const { mediaId } = req.params
+        const media = await Media.findById(mediaId)
+        const favourited = media.favourites.find(userId => userId.equals(req.user._id))
 
-You want to see your ReadMes as a way to walk the engineers through your approach and problem solving from the start of the project through to the end.
+        if (!favourited) {
+            media.favourites.push(req.user._id)
+        }
 
-You'll need to include a minimum of 3-4 code snippets, highlighting code you're particularly proud of and these code snippets will have descriptions on what you did, how and why to set the context of the snippet you include. These explanations are important for the engineers, as they will want to understand what you did and the reasoning behind the steps you took.
+        await media.save()
 
-You don't need to document every single thing you coded, but walk them through the key sections of the project build.
+        const updatedMedia = await Media.findById(mediaId).populate('genres')
 
-For any group project, you will just focus on your contributions. 
+        return res.json(updatedMedia)
+    } catch (error) {
+        errorHandler(error, res)
+    }
+})
 
-Some people will document the build/code process by discussing the key stages they worked on. Others will do a day by day guide. It’s entirely up to you how you structure this, as long as you discuss all the key things above.
+// * Remove Favourite
+router.delete('/medias/:mediaId/fav', isSignedIn, async ( req, res ) => {
+    try {
+        const { mediaId } = req.params
+        const media = await Media.findById(mediaId)
+        const favourited = media.favourites.find(userId => userId.equals(req.user._id))
 
-Insert your Build/Code Process here:
+        if (favourited) {
+            media.favourites.pull(req.user._id)
+        }
+
+        await media.save()
+
+        const updatedMedia = await Media.findById(mediaId).populate('genres')
+
+        return res.json(updatedMedia)
+
+    } catch (error) {
+        errorHandler(error, res)
+    }
+})
+```
+
+Even though it is a simple way of dealing with the problem, I believe that it made the process of finding the top favourites and how many favourites each media item had. I believe that this is the cause because using the user schema you had the id of the media item saved which allowed it to easily display the favourites of the user.
+
+### Filter for the Favourites
+
+I started off making the home page by displaying all the media which had been favourited, this was quite a simple process and it allowed me to get all the favourited media in one place. Using that each Favourite item had a type I created a const for the favourite shows and favourite movies and filtered them by type, As we wanted it to go from most favourited to least I had to sort those filtered shows and movies. I then used slice so it would only show the top 5 favourited shows and movies. This was later changed to top 6 as we thought it looked neater displaying 
+
+```jsx
+import useFetch from '../../hooks/useFetch'
+import { favHome } from '../../services/favourites'
+import './HomeFavourite.css'
+import MediaCard from '../MediaCard/MediaCard'
+
+export default function FavouriteHome() {
+
+    const { data: favourites, isLoading, error } = useFetch(favHome, [])
+
+    const favouriteMovies = [...favourites]
+        .filter(favourite => favourite.type === 'movie')
+        .sort((a, b) => b.favourites.length - a.favourites.length)
+        .slice(0, 6)
+
+    const favouriteTVShows = [...favourites]
+        .filter(favourite => favourite.type === 'tvshow')
+        .sort((a, b) => b.favourites.length - a.favourites.length)
+        .slice(0, 6)
+
+    return (
+
+        <div className="home-container">
+            {error
+                ? <p className='error-message'>{error}</p>
+                : isLoading
+                    ? <p className='loading'>Loading...</p>
+                    : <>
+                        <div className="media-section">
+                            <h1 className='home-title'>Favourite Movies</h1>
+                            <div className="media-grid">
+                                {favouriteMovies.map(media => <MediaCard key={media._id} media={media} />)}
+                            </div>
+                        </div>
+
+                        <div className="media-section">
+                            <h1 className='home-title'>Favourite TV Shows</h1>
+                            <div className="media-grid">
+                                {favouriteTVShows.map(media => <MediaCard key={media._id} media={media} />)
+                                }
+                            </div>
+                        </div>
+                    </>
+            }
+        </div>
+    )
+}
+```
+This part was quite satisfying because I was using features which I learnt in the first couple weeks of the course so it was nice to reuse it and incorperate it correctly which my current project.
+
+### Drop down menu
+
+Callum was working on adding a drop down menu as it was something we thought about add if we had time at the end of our project, we did and he came across an issue which was that either the dropdown would stay even if your mouse left the menu or the menu would disapear as soon as you left the button. Testing out multiple different solutions and researching how to fix it I came across two solutions, one was to do it all in the css, as this was a good solution I wanted to figure out a way to do it in jsx.
+
+```jsx
+import { NavLink } from "react-router";
+import { useContext, useState, useRef } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { removeToken } from "../../utils/auth";
+import './Navbar.css'
+
+export default function NavBar() {
+
+    const [userSettings, setUserSettings] = useState(false)
+    const { user, setUser } = useContext(UserContext)
+
+    const hoverProfile = useRef(false)
+    const hoverContent = useRef(false)
+
+    const openDropdown = () => setUserSettings(true)
+
+    const handleMouseLeave = () => {
+        setTimeout(() => {
+            if (!hoverProfile.current && !hoverContent.current) {
+                setUserSettings(false)
+            }
+        }, 100)
+    }
+
+    const handleSignOut = () => {
+        removeToken()
+        setUser(null)
+    }
 
 
+    return (
+        <header>
+            <div className="top-navigation">
+                <div className="nav-left">
+                    <div className="brand-logo">
+                        <NavLink to="/home">🎥</NavLink>
+                    </div>
+                    <NavLink to="/medias">Media</NavLink>
+                    <NavLink to="/genres">Genre</NavLink>
+                </div>
+                <div className="nav-middle">
+                    <NavLink to="/home">
+                        <h1>PlotPals</h1>
+                    </NavLink>
+                </div>
+                <nav className="nav-right">
+                    {user
+                        ? (
+                            <>
+                                <div className="profile-dropdown">
+                                    <div className="username-toggle" 
+                                        onMouseEnter={() => {hoverProfile.current = true; openDropdown()}}
+                                        onMouseLeave={() => {hoverProfile.current = false; handleMouseLeave()}}>
+                                        {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
+                                    </div>
+                                    {userSettings && (
+                                        <div className="dropdown-content"
+                                            onMouseEnter={() => (hoverContent.current = true)}
+                                            onMouseLeave={() => { hoverContent.current = false; handleMouseLeave()}}>
+                                            <NavLink to="/medias/new" >Add Media</NavLink>
+                                            <NavLink to="/favourites" >Your Favourites</NavLink>
+                                            <NavLink onClick={() => { handleSignOut() }} to="/login">Sign Out</NavLink>
+                                        </div>
+                                    )}
+                                </div>
+                            </>
+                        )
+                        : (
+                            <>
+                                <div className="profile-dropdown">
+                                    <div className="username-toggle"
+                                        onMouseEnter={() => { hoverProfile.current = true; openDropdown(); }}
+                                        onMouseLeave={() => { hoverProfile.current = false; handleMouseLeave() }}>
+                                        Account
+                                    </div>
+                                    {userSettings && (
+                                        <div className="dropdown-content"
+                                            onMouseEnter={() => (hoverContent.current = true)}
+                                            onMouseLeave={() => { hoverContent.current = false; handleMouseLeave() }}>
+                                            <NavLink to="/register">Register</NavLink>
+                                            <NavLink to="/login">Log In</NavLink>
+                                        </div>
+                                    )}
+                                </div>
+                            </>
+
+                        )
+                    }
+                </nav>
+            </div>
+        </header>
+    )
+}
+```
+By using hoverProfile and hoverContent it allowed me to only make the drop down dissapear when the mouse is no longer on both the profile and content. I thought this was a interesting way to deal with the issue but also a very simple way. 
 
 
-
-Challenges
+## Challenges
 
 Instructions
 
@@ -178,65 +364,44 @@ Insert your Challenges here:
 
 
 
-Wins
-
-Instructions
-
-The Wins section is your opportunity to highlight the aspects of your project you are most proud of. See this as your chance to showcase these parts of your projects to the engineers reading your ReadMes.
-
-Things you could discuss here:
-
-Interesting problem solving you did
-Strong sections of code
-Collaboration with other team members
-Visual design of the project
-
-Insert your Wins here:
+## Wins
 
 
-Key Learnings/Takeaways
+### My Plot Pal
 
-Instructions
+The highlight of this project was working with [Callum](https://github.com/Ryziou). This is because we:
 
-This section is one of the other most important parts of your ReadMe from an engineers’ perspective and helps to differentiate each of you from your classmates and team members. 
+1. Similar errors when we are coding which made it easy to spot any little errors as the other had had something similar
+2. Open communication where we could ask each other question and give eachother idea of how to fix problems
+3. Had a similar idea of how we wented the projec to look
 
-Engineers love to understand what you learn from each project and how it has shaped you as an engineer. 
+### Full Stack
 
-See this as your opportunity to show the engineers how your skills grew during each project sprint. 
+I enjoyed the satisfaction I got from being able to complete both sides of a app and basically build something out of nothing.
 
-Things you could discuss here:
+### UI
 
-What Technologies/Tools do you now feel more confident with? Tell them specifically what you learnt about these. 
-What engineering processes did you become more comfortable with? Standups? Pair programming? Project management? Tell them what you learnt from these processes?
-
-Insert your Key Learnings/Takeaways here:
-
+I am proud of how our project looked, I believe it looks very similar to our wireframe and it is a project which I am proud of based on that and how easy it is to navigate.
 
 
+## Key Learnings/Takeaways
 
 
-Bugs
-
-Instructions
-
-If you have any bugs in your project, it’s important that you flag them in your ReadMe. This helps the engineers reviewing your projects to understand that you are aware that there are issues - if you don’t flag these, then they won’t have that visibility that you know these problems are in your code and it can result in them not having a full understanding of your technical knowledge. 
-
-In either sentences or bullets, explain what the bugs are.
-
-If you have no bugs, you can leave this section blank.
-
-Insert your Bugs here:
+- I feel like I have a better understanding about building a API and the process of testing out all of the parts.
+- With this I also feel like I understand the importance of PostMan and how easy it is to read
+- Working in with GitHub as a group and know to collaberate on a project using branches.
+- I feel a lot more confident in dealing with Token and understand how they work.
 
 
+## Bugs
 
-Future Improvements
 
-Instructions
+- The server thinks the files uploaded are URL which are actually images, this coause some trouble in the back-end and front-end
 
-It’s common to get to the end of your project and have ideas on what you would do if you have more time, as well as how you might improve it. 
+## Future Improvements
 
-If you do, you should detail this here. It’s great to give that context on potential future improvements, to share your creative or technical ideas with the engineers reading your ReadMes.
 
-In either sentences or bullets, explain what your future improvements would be.
-
-Insert your Future Improvements here:
+- When you register a user it takes you straight to the home page instead of asking you to sign in.
+- Increase the number of filters on the media page.
+- Combine the media a genre page by creating a filter at the top of the page so you can see if your looking for media or genres.
+- Display the main actors and show the films and that they were also in.
