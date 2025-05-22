@@ -476,7 +476,6 @@ Another win would be the usage of ```react-select```. I got informed about this 
 
 - Add user authentication UI feedback (like redirecting to a welcome page after logging in, or a profile page)
 - Add a nice little gif for loading states so it's not just generic text saying "Loading..."
-- Sorting the genre's page alphabetically
 - Comment and review system to let users be able to leave comments or reviews on each media item
 - Add a robust search function that would allow users to find media by, not just genres but the title, or release date.
 - Add a light mode for users who dislike dark mode
